@@ -1,0 +1,51 @@
+<!doctype>
+<html>
+	<head>
+		<title>Test</title>
+	</head>
+	<body>
+		Neeraj Kumar & Kirti, Narayani Tower Ft. Rajarhat & Kolkata
+		<div id="src"></div>
+		<script>
+			var str = "Neeraj Kumar & Kirti, Narayani Tower Ft. Rajarhat & Kolkata";
+			var findChars = ["&", ", ", " , ", " Feat ", " Ft. "];
+			var findPos = [];
+			var html = "";
+			for(var i = 0; i < findChars.length; i++){
+				if(str.indexOf(findChars[i]) != -1){
+					var searchStrLen = findChars[i].length;
+					if (searchStrLen != 0) {
+						var startIndex = 0, index;
+						while ((index = str.indexOf(findChars[i], startIndex)) > -1) {
+							var a = [];
+							a['pos'] = index;
+							a['chr'] = findChars[i]
+							findPos.push(a);
+							startIndex = index + searchStrLen;
+						}
+					}
+				}
+			}
+			var sorted = findPos.sort(function(a, b){
+							var keyA = a.pos,
+							keyB = b.pos;
+							if(keyA < keyB) return -1;
+							if(keyA > keyB) return 1;
+							return 0;
+						});
+			for(var j = 0; j < sorted.length; j++){
+				if(j == 0){
+					html += '<a href="/artist/'+str.substring(0, sorted[j]['pos'])+'">'+str.substring(0, sorted[j]['pos'])+'</a>';
+					html += sorted[j]['chr'];
+				} else {
+					html += '<a href="/artist/'+str.substring((sorted[(j - 1)]['pos'] + sorted[(j - 1)]['chr'].length), sorted[j]['pos'])+'">'+str.substring((sorted[(j - 1)]['pos'] + sorted[(j - 1)]['chr'].length), sorted[j]['pos'])+'</a>';
+					html += sorted[j]['chr'];
+					if(j == (sorted.length - 1)){
+						html += '<a href="/artist/'+str.substring((sorted[j]['pos'] + sorted[j]['chr'].length), str.length)+'">'+str.substring((sorted[j]['pos'] + sorted[j]['chr'].length), str.length)+'</a>';
+					}
+				}
+			}
+			document.getElementById('src').innerHTML = html;
+		</script>
+	</body>
+</html>
