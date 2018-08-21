@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" class="svg">
+    <head>
+        <meta charset="utf-8">
+        <title>8thwonderpromos</title>
+        <meta name="description" content="Music, Video, Recordpool, DJ, DJPool, DJ Pool,VJ, VJPool, VJ Pool">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimal-ui">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+        <link rel="apple-touch-icon" href="/images/logo.png">
+        <meta name="apple-mobile-web-app-title" content="Flatkit">
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="shortcut icon" sizes="196x196" href="/images/logo.png">
+        <!--
+            Stylesheets and Preprocessors
+            ==============================
+
+            You can always bring in CSS files manually with `<link>` tags, or asynchronously
+            using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+            of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+            By default, stylesheets from your `assets/styles` folder are included
+            here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+            are supported. In production, your styles will be minified and concatenated into
+            a single file.
+
+            To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+            For example, here are a few things you could do:
+
+                + Change the order of your CSS files
+                + Import stylesheets from other directories
+                + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+        -->
+
+        <link rel="stylesheet" href="/styles/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/styles/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/styles/resposive.css">
+        <link rel="stylesheet" id="change-style" href="/styles/style.css">
+        <!-- jQuery library -->
+        <script type="text/javascript" src="/vendor/jquery/dist/jquery.min.js"></script>
+        <!-- Jquery Validation Library -->
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="/" class="logo"><img id="logo-img" src="/images/logo.png" alt=""></a>
+                        </div>
+                        <div class="col-sm-6">
+                            &nbsp;
+                        </div>
+                        <div class="col-sm-3">				
+                            <ul class="user_toggle">
+                                <% if (req.session.user) { %>
+                                    <li>
+                                        <a href="https://www.8thwonderpromos.com/amember/member" id="user_icon" class="black">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <%= req.session.user.login%>
+                                        </a>
+                                    </li>
+									<li>
+										<div class="crate" ref="cartCount">
+											<%= req.session.user && req.session.user.cart && req.session.user.cart.length ? req.session.user.cart.length : '0' %>
+										</div>
+									</li>
+                                <% } else { %>
+                                    <li>
+                                        <a href="/login" id="user_icon" class="black">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            Login
+                                        </a>
+                                    </li>
+                                <% } %>
+								<li>
+									<div class="crate" ref="cartCount">
+										<%= req.session.user && req.session.user.cart && req.session.user.cart.length ? req.session.user.cart.length : '0' %>
+									</div>
+								</li>
+                                <li class="dropdown"><a href="#" id="menu_toggle"><i class="fa fa-bars dropbtn" aria-hidden="true"  onclick="myFunction()"></i></a>
+                                    <div id="myDropdown" class="dropdown-content">
+                                        <ul class="menu-items">
+                                            <% if (req.session.user) { %>
+                                                <li><a href="https://www.8thwonderpromos.com/amember/member">My Account</a><a href="/logout" class="logout">Logout</a></li>
+                                            <% } %>
+                                            <% if (req.session.user && req.session.user.admin) { %>
+                                                <li><a href="/admin">Admin Dashboard</a></li>
+                                            <% }%>
+											<li><a href="/upload">Upload Odest/Remix</a></li>
+                                            <li><a href="/crate">Crate</a></li>
+                                            <li><a href="/contact">Contact</a></li>
+                                            <li><a href="javascript:void(0);">Store</a></li>
+                                            <li><a href="/feedback">Feedback</a></li>
+                                            <li><a href="/faq">F.A.Q.</a></li>
+											<li><a href="/policy">Privacy Policy</a></li>
+                                            <li><a href="/terms">Terms</a></li>
+                                            <li><a href="/copyright">Copyright</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a class="blk-wht-circle">
+                    <span class="black-hemi"><img src="/images/black-hemisphere.png" alt=""></span>
+                    <span class="white-hemi"><img src="/images/white-hemisphere.png" alt=""></span>
+                </a>
+            </header>
+            <%- body %>
+            <footer class="static">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <ul class="footer-nav">
+                                <li class="current-menu-item"><a href="https://www.8thwonderpromos.com/" title="Home">Home</a></li>
+                                <li><a href="https://pool.8thwonderpromos.com" title="Pool">Pool</a></li>
+                                <li><a href="javascript:void(0);" title="Store">Store</a></li>
+                                <li><a href="https://pool.8thwonderpromos.com/contact" title="Contact">Contact</a></li>
+                                <li><a href="https://pool.8thwonderpromos.com/crate" title="Crate">Crate</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" title="8thWonder" class="ftr-logo"><img src="images/blacklogo.png" alt=""></a>
+                            <p class="cpyryt">© <script type="text/javascript">var today=new Date(); document.write(today.getFullYear());</script> 8th Wonder Promos. All Rights Reserved</p>
+                            <ul class="social-icons">
+                                <li><a href="#" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="#" title="Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4">
+                            <ul class="otherlink">
+                                <li class="current-menu-item"><a href="https://pool.8thwonderpromos.com/terms" title="Terms">Terms</a></li>
+                                <li><a href="https://pool.8thwonderpromos.com/privacy" title="Privacy">Privacy</a></li>
+                                <li><a href="https://pool.8thwonderpromos.com/copyright" title="Copyright">Copyright</a></li>
+                                <li><a href="https://pool.8thwonderpromos.com/faq" title="F.A.Q">F.A.Q</a></li>
+                                <li><a href="https://pool.8thwonderpromos.com/feedback" title="Feedback">Feedback</a></li>
+                            </ul>
+                        </div>
+                    </div>		
+                </div>
+            </footer>
+        </div>
+        <!-- jQuery Cookie Library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.0/js.cookie.js"></script>
+        <!-- bootstrap library -->
+        <script type="text/javascript" src="/vendor/bootstrap.min.js"></script>
+		<!-- slick gallery plugin -->
+		<script type="text/javascript" src="/vendor/slick/slick/slick.min.js"></script>
+		<!-- slick nav plugin -->
+		<script type="text/javascript" src="/vendor/SlickNav/dist/jquery.slicknav.min.js"></script>
+		<!-- lightbox plugin -->
+		<script type="text/javascript" src="/vendor/featherlight.min.js"></script>
+		<!-- tooltips plugin -->
+        <script type="text/javascript" src="/vendor/opentip-native.min.js"></script>
+        <!--SCRIPTS-->
+        <script src="/concat/production.min.js"></script>
+        <!--SCRIPTS END-->
+        <script type="text/javascript">
+			io.sails.autoConnect = true;
+			window.globalSettings = {
+				product_id: '<%= sails.config.aMember.product_id %>'
+			}
+            $(document).ready(function(){
+                if(Cookies.get('lightStyle') === 'true') {
+					$("link#change-style").attr("href", "/styles/style-dark.css");
+                    $("img#logo-img").attr("src", "/images/logo-dark.png");
+				}
+				setTimeout(function(){
+					if(!Cookies.get('modalShown')) {
+						$("#myModal").modal('show');
+						Cookies.set('modalShown', true);
+					} else {
+						$("#myModal").remove();
+					}
+                },3000);
+				$(document).on("click", ".blk-wht-circle", function(){
+					$("body").hide();
+					if(Cookies.get('lightStyle') === 'true') {
+                        $("link#change-style").attr("href", "/styles/style.css");
+                        $("img#logo-img").attr("src", "/images/logo.png");
+						$("body").show();
+						Cookies.set('lightStyle', false);
+					} else {
+                        $("link#change-style").attr("href", "/styles/style-dark.css");
+                        $("img#logo-img").attr("src", "/images/logo-dark.png");
+						$("body").show();
+						Cookies.set('lightStyle', true);
+					}
+				});
+            });
+        </script>
+    </body>
+</html>
