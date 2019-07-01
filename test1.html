@@ -1,0 +1,165 @@
+<html>
+	<head>
+		<title>Test</title>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+		<style>
+			.panel-group .panel {
+				border-radius: 0;
+				box-shadow: none;
+				border-color: #EEEEEE;
+			}
+
+			.panel-default > .panel-heading {
+				padding: 0;
+				border-radius: 0;
+				color: #212121;
+				background-color: #FAFAFA;
+				border-color: #EEEEEE;
+			}
+
+			.panel-title {
+				font-size: 14px;
+			}
+
+			.panel-title > a {
+				display: block;
+				padding: 15px;
+				text-decoration: none;
+			}
+
+			.more-less {
+				float: right;
+				color: #212121;
+			}
+
+			.panel-default > .panel-heading + .panel-collapse > .panel-body {
+				border-top-color: #EEEEEE;
+			}
+			
+			.box {
+				height: 100px;
+				border: 1px solid #eee;
+				border-radius: 5px;
+				line-height: 24px;
+				text-align: center;
+			}
+			.pad-bot-20 {
+				padding-bottom: 20px;
+			}
+			.border-dotted {
+				border-left: 2px solid block;
+				border-left-style: dotted;
+			}
+			.panel-heading {
+				position: relative;
+			}
+			.ball {
+				position: absolute;
+				z-index: 1;
+				background: #fff;
+				border: 1px solid red;
+				border-radius: 10px;
+				height: 20px;
+				width: 20px;
+				text-align:center;
+				left: -28px;
+				top: 12px;
+			}
+			.up-arrow{
+				font-size: 28px;
+				position: absolute;
+				left: -8px;
+				top: -11px;
+				line-height: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-9">
+					<div class="col-md-12 pad-bot-20">
+						<div class="col-md-3 box">Overall Rating</div>
+						<div class="col-md-6"></div>
+						<div class="col-md-3 box right">SPF Status</div>
+					</div>
+					<div class="col-md-12">
+						<div class="col-md-1" id="dot-line"></div>
+						<div class="col-md-11 border-dotted">
+							<div class="up-arrow">
+								^<br/>
+								^
+							</div>
+							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="headingOne">
+										<div class="ball">1</div>
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+												<i class="more-less glyphicon glyphicon-plus"></i>
+												Collapsible Group Item #1
+											</a>
+										</h4>
+									</div>
+									<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+										<div class="panel-body">
+											  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+										</div>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="headingTwo">
+										<div class="ball">2</div>
+										<h4 class="panel-title">
+											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+												<i class="more-less glyphicon glyphicon-plus"></i>
+												Collapsible Group Item #2
+											</a>
+										</h4>
+									</div>
+									<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+										<div class="panel-body">
+											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+										</div>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="headingThree">
+										<div class="ball">3</div>
+										<h4 class="panel-title">
+											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+												<i class="more-less glyphicon glyphicon-plus"></i>
+												Collapsible Group Item #3
+											</a>
+										</h4>
+									</div>
+									<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+										<div class="panel-body">
+											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+										</div>
+									</div>
+								</div>
+							</div><!-- panel-group -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
+		<script>
+			function toggleIcon(e) {
+				$(e.target)
+					.prev('.panel-heading')
+					.find(".more-less")
+					.toggleClass('glyphicon-plus glyphicon-minus');
+			}
+			$('.panel-group').on('hidden.bs.collapse', toggleIcon);
+			$('.panel-group').on('shown.bs.collapse', toggleIcon);
+		</script>
+	</body>
+
+</html>
